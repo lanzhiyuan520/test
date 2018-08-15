@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 100%;
+            height: 30px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        var list = document.querySelector('.list')
+        list.onclick = function(e){
+            console.log(e.target.innerHTML)
+            var html = document.createElement('li')
+            html.innerHTML = '我是点击'+e.target.innerHTML+'添加的'
+            list.appendChild(html)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<script>
+    var arr = [1,2,3,4,5]
+    var arr3 = [6,7,8]
+    // arr.forEach((item,index)=>{
+    //      arr[index] = item*2
+    // })
+    console.log(arr.includes(10))
+    var arr2 = [1,2,3,4,5]
+    let a = arr2.map((item,index)=>{
+        return item*2
+    })
+    let b = arr.reduce((x,y)=>{
+        return x+y
+    })
+    var Arr = [
+        {
+            age : 10
+        },
+        {
+            age : 120
+        },{
+            age : 140
+        },{
+            age : 10
+        },{
+            age : 30
+        }
+    ]
+    let c = Arr.filter((item,index)=>{
+        return index > 2
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //原型链继承
+    // function Test(name,age){
+    //     this.name = name || '小红'
+    //     this.age = age || 15
+    //     this.fun=function(){
+    //         console.log(this.name+'今年'+this.age)
+    //     }
+    // }
+    // function Test2(){
+    //
+    // }
+    // //Test2的原型等于Test的实例   原型链继承
+    // Test2.prototype = new Test('小明',20)
+    // var a = new Test2()
+    // a.fun()
+    // console.log(a instanceof Test)
+    // console.log(a instanceof Test2)
+    //缺点:无法实现多继承，创建子类实例时，无法向父类构造函数传参
+
+    //构造函数继承
+    // function Fun(name,age){
+    //     this.name = name
+    //     this.age = age
+    //     this.fun=function(){
+    //         console.log(this.name+'今年'+this.age)
+    //     }
+    // }
+    // Fun.prototype.h = function(){
+    //     console.log('hello')
+    // }
+    // function Fun2(name,age){
+    //     Fun.call(this)    //改变this指向 继承了Fun的属性和方法
+    //     this.name = name
+    //     this.age = age
+    // }
+    // var a = new Fun2('小明',20)
+    // var b = new Fun2('小兰',15)
+    // a.fun()
+    // console.log(a instanceof Fun)  //false
+    // console.log(a instanceof Fun2) //true
+    //缺点：只能继承父类属性和方法  不能继承父类原型的属性或方法
+
+    //拷贝继承
+    // function Fun(name,age){
+    //     this.name = name
+    //     this.age = age
+    //     this.fun = function(){
+    //         console.log(this.name+'今年'+this.age);
+    //     }
+    // }
+    // function Fun2(name,age){
+    //     var a = new Fun()
+    //     //遍历实例上的属性和方法拷贝到构造函数原型上
+    //     for (p in a){
+    //         Fun2.prototype[p] = a[p]
+    //     }
+    //     Fun2.prototype.name = name
+    //     Fun2.prototype.age = age
+    // }
+    // var b = new Fun2('小花',20)
+    // b.fun()
+    // console.log(b instanceof Fun) //false
+    // console.log(b instanceof Fun2) //true
+    //缺点：效率低，无法获取父类不可枚举的方法
+
+    //组合继承
+    // function Fun2(name,age){
+    //     this.name = name
+    //     this.age = age
+    //     this.fun = function () {
+    //         console.log(this.name+'今年'+this.age)
+    //     }
+    // }
+    // Fun.prototype.h = function(){
+    //     console.log('hello world');
+    // }
+    // function Fun(name,age){
+    //     Fun2.call(this)
+    //     this.name = name
+    //     this.age = age
+    // }
+    // //Fun构造函数复制给Fun2的原型上
+    // Fun2.prototype = new Fun()
+    // var a = new Fun2('小兰',30)
+    // a.fun()
+    // a.h()
+    // console.log(a instanceof Fun)   //true
+    // console.log(a instanceof Fun2)  //true
+    //缺点：调用了两次父类构造函数，生成了两份实例
+
+    //寄生继承
+    // function Fun2(name,age){
+    //     this.name = name
+    //     this.age = age
+    //     this.fun = function () {
+    //         console.log(this.name+'今年'+this.age)
+    //     }
+    // }
+    // Fun.prototype.h = function(){
+    //     console.log('hello world');
+    // }
+    // function Fun(name,age){
+    //     Fun2.call(this)
+    //     this.name = name
+    //     this.age = age
+    // }
+    // (function(){
+    //     //再次创建没有实例的构造函数
+    //     var Fun3 = function(){}
+    //     //将Fun原型复制给Fun3  Fun实例上边会有Fun原型上的属性和方法
+    //     Fun3.prototype = Fun.prototype
+    //     //Fun3的实例赋值给Fun2的原型  所以Fun2的实例会有Fun3原型上的属性和方法
+    //     Fun2.prototype = new Fun3()
+    // })()
+    // var a = new Fun2('小兰',30)
+    // a.fun()
+    // a.h()
+    // console.log(a instanceof Fun)  //true
+    // console.log(a instanceof Fun2) //true
+</script>
+</body>
+</html>

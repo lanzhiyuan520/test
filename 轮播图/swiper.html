@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 700px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+        }
+        ul li{
+            width: 100%;
+        }
+        .swiper-img{
+            display: block;
+            width: 700px;
+            height: 300px;
+        }
+        .arrow-right{
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            border-top: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            transform: rotate(45deg);
+            margin-top: -15px;
+        }
+        .arrow-left{
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            width: 30px;
+            height: 30px;
+            border-top: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            transform: rotate(225deg);
+            margin-top: -15px;
+        }
+        .sliders{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .sliders .slider-item{
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .active{
+            background-color: darkgrey!important;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul class="list" style="transform: translateX(-700px)"></ul>
+
+    </div>
+    <script src="swiper.js"></script>
+    <script>
+        window.onload = function(){
+            var img = ['../img/qiaoba.jpg','../img/lufei2.jpeg','../img/suolong.jpeg','../img/shanzhi.jpg','../img/namei.jpeg','../img/qiaoba.jpg','../img/lufei2.jpeg']
+            var list = document.querySelector('.list')
+            var box = document.getElementById('box')
+            var swiper = new Swiper({
+                img,
+                box,
+                list,
+                arrow : true,
+                time:3000,
+                loop : true
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ._img{
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div>
+    <div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div><div>
+        <img src="" data-img="./img/lufei.jpg" class="_img">
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var imgs = document.querySelectorAll('img');
+        //可视高度
+        var h = window.innerHeight;
+        //滚动距离
+        var S = document.documentElement.scrollTop || document.body.scrollTop;
+        scroll(S)
+        //元素距顶部距离
+        function getTop(e) {
+            var T = e.offsetTop;
+            while(e = e.offsetParent) {
+                T += e.offsetTop;
+            }
+            return T;
+        }
+        //滚动事件
+        window.onscroll = function(){
+            //滚动距离
+            var s = document.documentElement.scrollTop || document.body.scrollTop;
+            scroll(s)
+        }
+        function scroll(s){
+            for (let i = 0; i < imgs.length; i++) {
+                //如果滚动距离加可视高度大于图片距顶部距离则说明在可视窗口内动态给图片添加地址
+                if (h+s > getTop(imgs[i])){
+                    setTimeout(function(){
+                        imgs[i].src = imgs[i].getAttribute('data-img');
+                    },500)
+                }
+            }
+        }
+    }
+</script>
+</html>
