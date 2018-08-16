@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [3,4,2,1,6,5,7]
+    //冒泡排序   思想简单  对比相邻两个数据进行比较 交换两个元素的位置
+    //缺点：循环此时多 效率比较低
+    function sort(arr){
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i+1; j < arr.length; j++) {
+                if (arr[i]>arr[j]){
+                    var temp = arr[i]
+                    arr[i] = arr[j]
+                    arr[j] = temp
+                }
+            }
+        }
+        return arr
+    }
+    console.log(sort(arr))
+</script>
+</body>
+</html>
