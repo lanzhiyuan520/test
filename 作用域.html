@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 1   //全局变量
+    function fun(){
+        var b = 2 //局部变量
+        c = 3  //不用var声明的就是全局变量
+        console.log(a)
+        console.log(b)
+        console.log(c)
+    }
+    fun()
+    console.log(b)
+    console.log(c)
+    //函数内部可以访问局部变量 但是在外部无法访问局部变量
+    //作用域链就是函数内部使用变量  先在函数内部查找  如果没有则去全局变量查找
+    console.log('111')
+</script>
+</body>
+</html>
